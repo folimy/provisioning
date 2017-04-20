@@ -18,7 +18,7 @@ sudo wget -qO- https://get.docker.com/ | sh
 
 # Docker-compose install
 curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
-chmod 755 /usr/bin/docker-compose
+sudo chmod 755 /usr/bin/docker-compose
 
 ## Get the dcs from docker
 curl -sL bit.ly/ralf_dcs -o ./dcs
