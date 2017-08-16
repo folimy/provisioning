@@ -11,6 +11,8 @@ fi
 sudo $Pkg_mgmt install curl -y
 sudo $Pkg_mgmt install wget -y
 sudo $Pkg_mgmt install vim -y
+sudo $Pkg_mgmt install git -y
+sudo $Pkg_mgmt install bc -y
 #sudo $Pkg_mgmt update -y
 
 # Docker install
