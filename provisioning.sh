@@ -8,15 +8,12 @@ apt-get 2> /tmp/check_pkgmgmt
 		Pkg_mgmt="apt-get"
 		apt update
 fi
-sudo $Pkg_mgmt install curl -y
-sudo $Pkg_mgmt install wget -y
-sudo $Pkg_mgmt install vim -y
-sudo $Pkg_mgmt install git -y
-sudo $Pkg_mgmt install bc -y
+sudo $Pkg_mgmt install curl bc -y
 #sudo $Pkg_mgmt update -y
 
 # Docker stable ver. install 
-sudo wget -qO- https://get.docker.com/ | CHANNEL=stable sh
+sudo curl -sL  https://get.docker.com/ |sed -e 's/edge/stable/g' | sh
+
 
 # Docker-compose install
 curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
