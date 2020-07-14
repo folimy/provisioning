@@ -17,9 +17,10 @@ sudo curl -sL  https://get.docker.com/ |sed -e 's/edge/stable/g' | sh
 
 # Docker-compose install
 #curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname -s`-`uname -m` > /usr/bin/docker-compose
-composevr=$(curl -sL https://github.com/docker/compose/releases |grep curl |head -n1 | awk -F"/" '{ print $8 }')
+#composevr=$(curl -sL https://github.com/docker/compose/releases |grep curl |head -n1 | awk -F"/" '{ print $8 }')
 #curl -L https://github.com/docker/compose/releases/download/$composevr/docker-compose-`uname -s`-`uname -m` -o /usr/bin/docker-compose
-curl -L https://github.com/docker/compose/releases/download/$composevr/docker-compose-$(uname -s)-$(uname -m) -o /usr/bin/docker-compose
+#curl -L https://github.com/docker/compose/releases/download/$composevr/docker-compose-$(uname -s)-$(uname -m) -o /usr/bin/docker-compose
+sudo curl -sL $(curl -sL https://github.com/docker/compose/releases |grep Linux |grep -v sha |head -n1|awk -F"\"" '{printf "https://github.com%s", $2}') -o /usr/bin/docker-compose
 sudo chmod 755 /usr/bin/docker-compose
 sudo systemctl enable docker
 sudo systemctl start docker
